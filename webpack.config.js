@@ -45,6 +45,11 @@ module.exports = ({ development }) => ({
         exclude: /node_modules/
       },
       {
+        test: /\.json$/,
+        use: 'json-loader',
+        type: 'asset/resource'
+      },
+      {
         test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
         type: 'asset/resource'
       },
@@ -87,7 +92,7 @@ module.exports = ({ development }) => ({
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false })
   ],
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.ts', '.js', '.json']
   },
   ...devServer(development)
 });

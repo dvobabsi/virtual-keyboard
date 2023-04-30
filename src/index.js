@@ -2,9 +2,12 @@ import './styles.scss';
 
 import { test } from './test';
 
+// eslint-disable-next-line no-undef
+alert('Буду невероятно признателен, если сможете проверить работу под конец Кросс-чека)');
+
 test();
 // console.log('Hi');
-
+const json = require('./key.json');
 const body = document.querySelector('body');
 const container = document.createElement('div');
 const title = document.createElement('h1');
@@ -13,6 +16,19 @@ const keyboard = document.createElement('div');
 const row = document.createElement('div');
 const description = document.createElement('p');
 const language = document.createElement('p');
+
+console.log(json['row-1']);
+
+const createButton = (data) => {
+  const button = document.createElement('div');
+  const rus = document.createElement('span');
+  const eng = document.createElement('span');
+
+  button.classList.add('keyboard__key', 'key', `${data}`);
+  rus.classList.add('rus');
+  eng.classList.add('eng');
+};
+createButton();
 
 container.classList.add('container');
 title.classList.add('title');
