@@ -23,13 +23,8 @@ async function getJson () {
 const createButton = (data) => {
   const keys = data;
   // eslint-disable-next-line no-undef
-  console.log(keys);
-  // eslint-disable-next-line no-undef
   for (const rowElem in keys) {
     const rowButtons = keys[rowElem];
-    // eslint-disable-next-line no-undef
-    console.log(rowElem);
-    console.log(keys[rowElem]);
     const row = document.createElement('div');
 
     row.classList.add(rowElem, 'row');
@@ -38,8 +33,6 @@ const createButton = (data) => {
     for (const key in rowButtons) {
       const textRus = rowButtons[key].rus;
       const textEng = rowButtons[key].eng;
-      // eslint-disable-next-line no-undef
-      console.log(rowButtons[key]);
       const button = document.createElement('div');
       const rus = document.createElement('span');
       const eng = document.createElement('span');
@@ -100,3 +93,23 @@ language.textContent = 'Для переключения языка комбин�
 container.append(title, textarea, keyboard, description, language);
 
 body.append(container);
+
+keyboard.addEventListener('click', function (el) {
+  console.log(el.target);
+});
+
+document.addEventListener('keydown', function (event) {
+  if (event.code === 'KeyZ' && (event.ctrlKey || event.metaKey)) {
+    console.log(event.code);
+  }
+});
+
+document.querySelector('textarea').onkeypress = function (event) {
+  console.log('charCode: ' + event.charCode);
+  console.log('code:' + event.code);
+  console.log('key:' + event.key);
+  console.log('keyCode:' + event.keyCode);
+  console.log(event);
+  console.log(event);
+  console.log(event);
+};
